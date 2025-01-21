@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
     public Card thirdCard;
 
+    // TimeBar
+    public float maxTime = 30.0f;
+    public RectTransform frontRect;
+    private float currentTime;
+    private float initialWidth;
+    //
+
     public int cardCount;
     float time = 0;
 
@@ -25,23 +32,26 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        currentTime = maxTime;
+        initialWidth = frontRect.sizeDelta.x;
         Time.timeScale = 1.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
+        currentTime -= Time.deltaTime;
+        UpdateTimeBar();
     }
+
     public void MatchCard2()
     {
-        if(firstCard.idx == secondCard.idx)
+        if (firstCard.idx == secondCard.idx)
         {
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if(cardCount == 0)
+            if (cardCount == 0)
             {
                 Time.timeScale = 0;
             }
@@ -56,7 +66,7 @@ public class GameManager : MonoBehaviour
     }
     public void MatchCard3()
     {
-        if (firstCard.idx == secondCard.idx && secondCard.idx ==thirdCard.idx)
+        if (firstCard.idx == secondCard.idx && secondCard.idx == thirdCard.idx)
         {
             firstCard.DestroyCard();
             secondCard.DestroyCard();
@@ -75,5 +85,10 @@ public class GameManager : MonoBehaviour
         }
         firstCard = null;
         secondCard = null;
+    }
+    void UpdateTimeBar()
+    {
+        float ratio = currentTime / maxTime;
+        frontRect.sizeDelta = new Vector2(initialWidth * ratio, frontRect.sizeDelta.y);
     }
 }
