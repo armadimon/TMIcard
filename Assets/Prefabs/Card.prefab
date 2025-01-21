@@ -360,7 +360,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idx: 0
   anim: {fileID: 6310744144625757123}
-  frontimage: {fileID: 0}
+  front: {fileID: 7313284379215601180}
+  back: {fileID: 6377618908674593}
+  frontimage: {fileID: 1365467742345928209}
 --- !u!82 &6207618700101526045
 AudioSource:
   m_ObjectHideFlags: 0

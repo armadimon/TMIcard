@@ -249,7 +249,7 @@ MonoBehaviour:
   maxTime: 30
   frontRect: {fileID: 32563432}
   cardCount: 0
-  level: 0
+  level: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58f2ca9ff65ae349819bac7b38fbdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 5743830007901573997, guid: 7e8feb2ca35699848967d8df846f7828, type: 3}
   width: 0
 --- !u!1 &869515930
 GameObject:
