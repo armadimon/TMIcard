@@ -27,6 +27,7 @@ public class Card : MonoBehaviour
     }
     public void OpenCard()
     {
+        Debug.Log(anim);
         anim.SetBool("isOpen", true);
         if(GameManager.instance.firstCard == null)
         {
