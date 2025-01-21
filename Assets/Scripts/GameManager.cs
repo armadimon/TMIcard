@@ -6,44 +6,57 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public GameObject endPannel;
+
     public Text timeTxt;
+    public Text bestScore;
+    public Text score;
 
     public Card firstCard;
     public Card secondCard;
     public Card thirdCard;
 
-    // TimeBar
-    public float maxTime = 30.0f;
-    public RectTransform frontRect;
-    private float currentTime;
-    private float initialWidth;
-    //
-
     public int cardCount;
+    public int width;
     float time = 0;
 
     public int level = 0;
+
+    string key;
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
+        }
+        if (PlayerPrefs.HasKey("Level"))
+        {
+            level = PlayerPrefs.GetInt("Level");
         }
     }
     void Start()
     {
-        currentTime = maxTime;
-        initialWidth = frontRect.sizeDelta.x;
+        if (level == 1)
+        {
+            width = 4;
+            key = "Level1";
+        }
+        if (level == 2)
+        {
+            width = 6;
+            key = "Level2";
+        }
         Time.timeScale = 1.0f;
     }
 
+    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        currentTime -= Time.deltaTime;
-        UpdateTimeBar();
+        timeTxt.text = time.ToString("N2");
     }
-
     public void MatchCard2()
     {
         if (firstCard.idx == secondCard.idx)
@@ -51,10 +64,7 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if (cardCount == 0)
-            {
-                Time.timeScale = 0;
-            }
+            GameOver(key);
         }
         else
         {
@@ -72,10 +82,7 @@ public class GameManager : MonoBehaviour
             secondCard.DestroyCard();
             thirdCard.DestroyCard();
             cardCount -= 3;
-            if (cardCount == 0)
-            {
-                Time.timeScale = 0;
-            }
+            GameOver(key);
         }
         else
         {
@@ -86,9 +93,31 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
     }
-    void UpdateTimeBar()
+    public void GameOver(string key)
     {
-        float ratio = currentTime / maxTime;
-        frontRect.sizeDelta = new Vector2(initialWidth * ratio, frontRect.sizeDelta.y);
+        if (cardCount == 0)
+        {
+            score.text = key + " : " + time.ToString("N2");
+            if (PlayerPrefs.HasKey(key))
+            {
+                float best = PlayerPrefs.GetFloat(key);
+                if (time < best)
+                {
+                    PlayerPrefs.SetFloat(key, time);
+                    bestScore.text = key + " : " + time.ToString("N2");
+                }
+                else
+                {
+                    bestScore.text = key + best.ToString("N2");
+                }
+            }
+            else
+            {
+                PlayerPrefs.SetFloat(key, time);
+                bestScore.text = key + " : " + time.ToString("N2");
+            }
+            endPannel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
