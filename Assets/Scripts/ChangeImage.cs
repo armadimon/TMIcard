@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RightImage : MonoBehaviour
+public class ChangeImage : MonoBehaviour
 {
     public Image Image1;
     public Image Image2;
     public Image Image3;
 
-    public void RightButtonImage()
+    public void RightBittonImage()
     {
  
         Sprite sprite1 = Resources.Load<Sprite>("Images/3");
