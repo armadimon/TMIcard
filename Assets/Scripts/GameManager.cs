@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject endPannel;
 
-    public Text timeTxt;
     public Text bestScore;
     public Text score;
 
@@ -55,7 +54,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
     }
     public void MatchCard2()
     {

@@ -9,4 +9,14 @@ public class StratButton : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void RetryLv1()
+    {
+        PlayerPrefs.SetInt("Level", 1);
+        SceneManager.LoadScene("MainScene");
+    }
+    public void RetryLv2()
+    {
+        PlayerPrefs.SetInt("Level", 2);
+        SceneManager.LoadScene("MainScene");
+    }
 }
