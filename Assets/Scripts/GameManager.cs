@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Text bestScore;
     public Text score;
+    public Text endingText;
 
     public Card firstCard;
     public Card secondCard;
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     public int cardCount;
     public int width;
     float time = 0;
+
+    public Image timeBarFront;
+    public float maxTime = 30f;
 
     public int level = 0;
 
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        time = maxTime;
         if (level == 1)
         {
             width = 4;
@@ -53,8 +58,23 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+            UpdateTimeBar();
+        }
+        else
+        {
+            GameOver(key);
+        }
     }
+    void UpdateTimeBar()
+    {
+        float ratio = time / maxTime;
+        Debug.Log($"{time}, {maxTime}");
+        timeBarFront.rectTransform.localScale = new Vector3(ratio, 1, 1);
+    }
+
     public void MatchCard2()
     {
         if (firstCard.idx == secondCard.idx)
@@ -117,5 +137,12 @@ public class GameManager : MonoBehaviour
             endPannel.SetActive(true);
             Time.timeScale = 0;
         }
+        if (time <= 0)
+        {
+            endPannel.SetActive(true);
+            endingText.text = "FAIL...";
+            Time.timeScale = 0;
+        }
+
     }
 }
