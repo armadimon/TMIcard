@@ -28,7 +28,7 @@ public class Card : MonoBehaviour
     {
         idx = number;
         //Name부분에 Resources폴더 추가 후 이름 수정하여 변경하기 
-        frontImage.sprite = Resources.Load<Sprite>($"Name{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"Image{idx}");
     }
 
     public void OpenCard()
