@@ -8,37 +8,31 @@ public class Board : MonoBehaviour
 {
     public GameObject card;
 
-    public int width = 0;
+    int width = 0;
+    int level = 0;
 
     void Start()
     {
-        if(GameManager.instance.level == 1)
-        {
-            width = 4;
-        }
-        else if(GameManager.instance.level == 2)
-        {
-            width = 6;
-        }
+        level = GameManager.instance.level;
+        width = GameManager.instance.width;
 
         int maxCard = width * width;
         float cardScale = 0;
         float cardInterval = 0;
 
-        if (width == 4)
+        if (level ==1)
         {
             cardScale = 1.5f;
             cardInterval = 1.8f;
         }
-
-        if(width == 6)
+        else if(level == 2)
         {
             cardScale = 1.0f;
             cardInterval = 1.2f;
         }
 
         int[] arr = new int[maxCard];
-        if(width == 4)
+        if(level == 1)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -46,7 +40,7 @@ public class Board : MonoBehaviour
             }
             arr = arr.OrderBy(x => Random.Range(0f, maxCard / 2)).ToArray();
         }
-        else if(width == 6)
+        else if(level == 2)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -54,8 +48,6 @@ public class Board : MonoBehaviour
             }
             arr = arr.OrderBy(x => Random.Range(0f, maxCard / 3)).ToArray();
         }
-
-
 
         for (int i = 0; i < maxCard; i++)
         {
