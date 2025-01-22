@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject endPannel;
+    public Button itemBtn1;
     public Button itemBtn2;
+    public Button itemBtn3;
 
     public Text bestScore;
     public Text score;
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
     public Image timeBarFront;
     public int level = 0;
 
-    string key;
+    public string key;
 
     private void Awake()
     {
@@ -59,7 +61,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (time > 0)
         {
             time -= Time.deltaTime;
@@ -69,8 +70,7 @@ public class GameManager : MonoBehaviour
         {
             GameOver(key);
         }
-        ComboItem2();
-        Debug.Log(comboTime);
+        OnComboItem();
     }
     void UpdateTimeBar()
     {
@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
             firstCard = null;
             secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
+            secondCard.right = true;
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCardInvoke();
             secondCard.DestroyCardInvoke();
             thirdCard.LookCard();
+            thirdCard.right = true;
             thirdCard.anim.SetBool("isSuccess",true);
             comboTime += 5f;
             cardCount -= 3;
@@ -122,7 +124,7 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
     }
-    public void ComboItem2()
+    public void OnComboItem()
     {
         if (comboTime > 0)
         {
@@ -132,9 +134,14 @@ public class GameManager : MonoBehaviour
         {
             comboTime = 0;
         }
-        if (comboTime > 10f && time < 25)
+        if (comboTime > 10f)
         {
-            itemBtn2.interactable = true;
+            itemBtn1.interactable = true;
+            if(time < 25f)
+            { 
+                itemBtn2.interactable = true;
+            }
+            itemBtn3.interactable = true;
         }
     }
     public void GameOver(string key)
@@ -145,14 +152,14 @@ public class GameManager : MonoBehaviour
             if (PlayerPrefs.HasKey(key))
             {
                 float best = PlayerPrefs.GetFloat(key);
-                if (time < best)
+                if (time > best)
                 {
                     PlayerPrefs.SetFloat(key, time);
                     bestScore.text = key + " : " + time.ToString("N2");
                 }
                 else
                 {
-                    bestScore.text = key + best.ToString("N2");
+                    bestScore.text = key + " : " + best.ToString("N2");
                 }
             }
             else
