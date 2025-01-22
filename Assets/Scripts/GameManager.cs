@@ -79,8 +79,9 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            firstCard.DestroyCard();
-            secondCard.DestroyCard();
+            firstCard.DestroyCardInvoke();
+            secondCard.LookCard();
+            secondCard.anim.SetBool("isSuccess", true);
             cardCount -= 2;
             GameOver(key);
         }
@@ -96,9 +97,10 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx && secondCard.idx == thirdCard.idx)
         {
-            firstCard.DestroyCard();
-            secondCard.DestroyCard();
-            thirdCard.DestroyCard();
+            firstCard.DestroyCardInvoke();
+            secondCard.DestroyCardInvoke();
+            thirdCard.LookCard();
+            thirdCard.anim.SetBool("isSuccess",true);
             cardCount -= 3;
             GameOver(key);
         }
