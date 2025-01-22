@@ -6,12 +6,8 @@ using UnityEngine.UI;
 
 public class GalleryButton : MonoBehaviour
 {
-    // 전체적으로 지피티 도움 받았으며 다시한번 확인하기
     public Button galleryButton;
 
-
-    // OnEnable : SetActive true 될때마다 작동함, start는 한번만
-    // 시작할때마다 세팅 함수가 작동
     private void Start()
     {
         galleryButton = GetComponent<Button>();
