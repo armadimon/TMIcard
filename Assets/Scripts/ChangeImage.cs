@@ -17,9 +17,9 @@ public class ChangeImage : MonoBehaviour
             num += 3;
         }
    
-        Image1.sprite = Resources.Load<Sprite>("Images/" + (num-2).ToString());
-        Image2.sprite = Resources.Load<Sprite>("Images/" + (num-1).ToString());
-        Image3.sprite = Resources.Load<Sprite>("Images/" + num.ToString());
+        Image1.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/" + (num-2).ToString());
+        Image2.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/" + (num-1).ToString());
+        Image3.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/" + num.ToString());
 
 
     }
@@ -31,9 +31,9 @@ public class ChangeImage : MonoBehaviour
             num -= 3;
         }
 
-        Image1.sprite = Resources.Load<Sprite>("Images/" + (num - 2).ToString());
-        Image2.sprite = Resources.Load<Sprite>("Images/" + (num - 1).ToString());
-        Image3.sprite = Resources.Load<Sprite>("Images/" + num.ToString());
+        Image1.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/" + (num - 2).ToString());
+        Image2.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/" + (num - 1).ToString());
+        Image3.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/" + num.ToString());
 
 
     }

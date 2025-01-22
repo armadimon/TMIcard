@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 612912849}
   - component: {fileID: 612912848}
   m_Layer: 5
-  m_Name: YUJI03
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 963795132}
   - component: {fileID: 963795131}
   m_Layer: 5
-  m_Name: YUJI02
+  m_Name: TMI Images 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1156,7 +1156,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 106, y: -0.8}
-  m_SizeDelta: {x: 333.4, y: 585.9}
+  m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963795131
 MonoBehaviour:
@@ -1299,7 +1299,7 @@ RectTransform:
   m_GameObject: {fileID: 1055411177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1602228397}
@@ -1307,7 +1307,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 802, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 61, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055411179
 MonoBehaviour:
@@ -1400,8 +1400,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 97e0fb1a0e64322439bb7e107c5a8435, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1743,7 +1743,7 @@ GameObject:
   - component: {fileID: 1569627375}
   - component: {fileID: 1569627374}
   m_Layer: 5
-  m_Name: YUJI02
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 1779898280}
   - component: {fileID: 1779898283}
   m_Layer: 5
-  m_Name: YUJI01
+  m_Name: TMI Images 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,7 +2217,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -282.9, y: -0.8}
-  m_SizeDelta: {x: 333.4, y: 589.9}
+  m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779898280
 MonoBehaviour:
@@ -2424,7 +2424,7 @@ GameObject:
   - component: {fileID: 1851183821}
   - component: {fileID: 1851183820}
   m_Layer: 5
-  m_Name: YUJI03
+  m_Name: TMI Images 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2447,7 +2447,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 501, y: -0.8}
-  m_SizeDelta: {x: 333.4, y: 585.9}
+  m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851183820
 MonoBehaviour:
@@ -2598,7 +2598,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -586, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 61, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861361826
 MonoBehaviour:
@@ -2691,8 +2691,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 97e0fb1a0e64322439bb7e107c5a8435, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3023,7 +3023,7 @@ GameObject:
   - component: {fileID: 2129595996}
   - component: {fileID: 2129595995}
   m_Layer: 5
-  m_Name: YUJI01
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
