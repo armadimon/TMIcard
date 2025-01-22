@@ -682,6 +682,7 @@ MonoBehaviour:
   Image1: {fileID: 721136932}
   Image2: {fileID: 837934750}
   Image3: {fileID: 945384307}
+  num: 2
 --- !u!1 &1479373710
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +832,7 @@ MonoBehaviour:
   Image1: {fileID: 721136932}
   Image2: {fileID: 837934750}
   Image3: {fileID: 945384307}
+  num: -1
 --- !u!1 &1764374725
 GameObject:
   m_ObjectHideFlags: 0
