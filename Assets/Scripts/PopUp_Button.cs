@@ -18,6 +18,7 @@ public class PopUp_Button : MonoBehaviour
 
     public Text FirstTxt;
     public Text SecondTxt;
+    
 
     string Name = "";
     string TMI = "";
@@ -30,7 +31,7 @@ public class PopUp_Button : MonoBehaviour
     {
         TMIImage.SetActive(true);
         TMIImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-        TargetImage.sprite = NewImage.sprite; // 이미지 스프라이트 교체
+        TargetImage.sprite = Resources.Load<Sprite>("Images/Gallary_Ver_Image/"+NewImage.sprite.name); // 이미지 스프라이트 교체
         int currentNum = ChangeImage.num;
         Debug.Log($"Imagenum.num 값: {currentNum}"); // 클래스로 ChangeImage에 num값 받기
 
@@ -130,6 +131,7 @@ public class PopUp_Button : MonoBehaviour
             }
         }
 
+        
         FirstTxt.text = Name;
         SecondTxt.text = TMI;
     }
