@@ -9,6 +9,7 @@ public class ChangeImage : MonoBehaviour
 
     public static int num = 2;
 
+
     public void RightBittonImage()
     {
         if(num<=11)

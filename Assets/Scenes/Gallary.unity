@@ -1033,8 +1033,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: bce82967dc57593459b3fe658d00b81e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1172,6 +1172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMIImage: {fileID: 199176533}
   PopUpImage: {fileID: 199176533}
+  TargetImage: {fileID: 1569627374}
+  NewImage: {fileID: 963795133}
 --- !u!114 &963795132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1467,6 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMIImage: {fileID: 1331406848}
   PopUpImage: {fileID: 1331406848}
+  TargetImage: {fileID: 0}
+  NewImage: {fileID: 0}
 --- !u!114 &1206362726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2319,6 +2323,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMIImage: {fileID: 731177086}
   PopUpImage: {fileID: 731177086}
+  TargetImage: {fileID: 2129595995}
+  NewImage: {fileID: 1779898281}
 --- !u!1 &1826150614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMIImage: {fileID: 1331406848}
   PopUpImage: {fileID: 1331406848}
+  TargetImage: {fileID: 612912848}
+  NewImage: {fileID: 1851183822}
 --- !u!114 &1851183821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2746,6 +2754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMIImage: {fileID: 731177086}
   PopUpImage: {fileID: 731177086}
+  TargetImage: {fileID: 0}
+  NewImage: {fileID: 0}
 --- !u!114 &1912692816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,6 +2903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMIImage: {fileID: 199176533}
   PopUpImage: {fileID: 199176533}
+  TargetImage: {fileID: 0}
+  NewImage: {fileID: 0}
 --- !u!114 &1929714255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,7 +3056,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a6de26b87b401bc48bf197c249efdd96, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
