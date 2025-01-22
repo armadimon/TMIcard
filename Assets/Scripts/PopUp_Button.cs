@@ -45,11 +45,6 @@ public class PopUp_Button : MonoBehaviour
         Image TMIimage3 = changeImage.Image3;
 
 
-        //Image TMIimage1 = GetComponent<ChangeImage>().Image1;
-        //Image TMIimage2 = GetComponent<ChangeImage>().Image2;
-        //Image TMIimage3 = GetComponent<ChangeImage>().Image3;
-
-
         if (currentNum>11)
         {
             Name = "±è¿µÁß";

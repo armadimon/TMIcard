@@ -8,7 +8,7 @@ public class ItemBtn : MonoBehaviour
 {
     public string triggerName = "isOpen";
     Animator[] animators;
-    bool falseIntercatable = true;
+    bool falseIntercatable = false;
 
     public Card firstCard = null;
     public Card secondCard = null;
