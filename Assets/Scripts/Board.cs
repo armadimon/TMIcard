@@ -19,6 +19,8 @@ public class Board : MonoBehaviour
         int maxCard = width * width;
         float cardScale = 0;
         float cardInterval = 0;
+        float genOffsetX = 0.0f;
+        float genOffsetY = 0.0f;
 
         if (level ==1)
         {
@@ -29,6 +31,8 @@ public class Board : MonoBehaviour
         {
             cardScale = 1.0f;
             cardInterval = 1.2f;
+            genOffsetX = 0.3f;
+            genOffsetY = 0.2f;
         }
 
         int[] arr = new int[maxCard];
@@ -53,8 +57,8 @@ public class Board : MonoBehaviour
         {
             GameObject go = Instantiate(card, this.transform);
 
-            float x = (i % width) * cardInterval - 6.7f;
-            float y = (i / width) * cardInterval - 3f;
+            float x = (i % width) * cardInterval - 6.7f - genOffsetX;
+            float y = (i / width) * cardInterval - 3f - genOffsetY;
             go.transform.position = new Vector2(x, y);
             go.transform.localScale = new Vector2(cardScale, cardScale);
             go.GetComponent<Card>().Setting(arr[i]);
