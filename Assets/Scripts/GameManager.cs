@@ -82,10 +82,12 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            firstCard.DestroyCardInvoke();
+            firstCard.Display();
+            firstCard = null;
             secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
             comboTime += 5f;
+            secondCard.DestroyCardInvoke();
             cardCount -= 2;
             GameOver(key);
         }
