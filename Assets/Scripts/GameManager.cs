@@ -87,9 +87,8 @@ public class GameManager : MonoBehaviour
         {
             firstCard.Display();
             board.SaveCard(firstCard);
-
+            firstCard.anim.SetBool("isSuccess", true);
             firstCard = null;
-            secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
             secondCard.right = true;
             comboTime += 5f;
@@ -189,6 +188,7 @@ public class GameManager : MonoBehaviour
 
     void InvokeEndSettingSuccess()
     {
+        PlayerPrefs.SetInt("GameCleared", 1);
         EndSetting("SUCCESS!");
     }
 

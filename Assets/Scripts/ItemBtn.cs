@@ -13,6 +13,9 @@ public class ItemBtn : MonoBehaviour
     public Card firstCard = null;
     public Card secondCard = null;
     public Card thirdCard = null;
+
+    public Board board;
+
     public void Look()
     {
         GameManager.instance.comboTime = 0f;
@@ -50,19 +53,27 @@ public class ItemBtn : MonoBehaviour
         GameManager.instance.comboTime = 0f;
         GameManager.instance.itemBtn3.interactable = falseIntercatable;
         GameObject[] clones = GameObject.FindGameObjectsWithTag("Card");
-        Card[] cards = new Card[clones.Length];
+        List<Card> cards = new List<Card>();
 
-        for(int i = 0; i < clones.Length; i++)
+        int j = 0;
+        for (int i = 0; i < clones.Length; i++)
         {
-            cards[i] = clones[i].GetComponent<Card>();
+            Card tempCard = clones[i].GetComponent<Card>();
+            if (tempCard.anim.GetBool("isSuccess") == false)
+            {
+                cards.Add(tempCard);
+                //cards[j] = tempCard;
+                j++;
+            }
         }
         if(GameManager.instance.level == 1)
         {
             while (GameManager.instance.cardCount != 0)
             {
-                int ranNum = Random.Range(0, clones.Length);
+                int ranNum = Random.Range(0, cards.Count);
+                Debug.Log(cards.Count);
                 firstCard = cards[ranNum];
-                for (int i = 0; i < clones.Length; i++)
+                for (int i = 0; i < cards.Count - 1; i++)
                 {
                     if (firstCard.idx == cards[i].idx && firstCard != cards[i])
                     {
@@ -72,9 +83,11 @@ public class ItemBtn : MonoBehaviour
                 if (secondCard.right == false)
                 {
                     secondCard.right = true;
+                    secondCard.Display();
+                    board.SaveCard(secondCard);
                     firstCard.DestroyCardInvoke();
+                    secondCard.anim.SetBool("isSuccess", true);
                     secondCard.anim.SetBool("isOpen", true);
-                    secondCard.LookCard();
                     GameManager.instance.cardCount -= 2;
                     if (GameManager.instance.cardCount == 0)
                     {

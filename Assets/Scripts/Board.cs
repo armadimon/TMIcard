@@ -71,34 +71,15 @@ public class Board : MonoBehaviour
 
     public void SaveCard(Card card)
     {
-        Debug.Log(level);
         if (level == 1)
         {
-            Debug.Log("check");
-            try
+            for (int i = 0; i < cardList.Length; i++)
             {
-                // 카드 저장 로직
-                if (cardList == null)
+                if (cardList[i] == null)
                 {
-                    // 초기화 로직
-                    Debug.Log("cardList is being initialized.");
+                    cardList[i] = card;
+                    return;
                 }
-
-                // 빈 자리를 찾아서 카드 추가하는 로직
-                for (int i = 0; i < cardList.Length; i++)
-                {
-                    if (cardList[i] == null)
-                    {
-                        cardList[i] = card;
-                        return;
-                    }
-                }
-
-                Debug.LogWarning("Card list is full.");
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"Error in SaveCard: {e.Message}");
             }
         }
         else if (level == 2)
