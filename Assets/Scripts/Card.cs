@@ -36,7 +36,9 @@ public class Card : MonoBehaviour
         {
             GameManager.instance.secondCard = this;
             if (GameManager.instance.level == 1)
-            { GameManager.instance.MatchCard2(); }
+            { 
+                GameManager.instance.MatchCard2();
+            }
         }
         else
         {
@@ -59,5 +61,14 @@ public class Card : MonoBehaviour
     public void CloseCardInvoke()
     {
         anim.SetBool("isOpen", false);
+    }
+
+    public void LookCard()
+    {
+        float x = Random.Range(1.2f, 8.0f);
+        float y = Random.Range(-0.8f, -2.7f);
+        float scale = Random.Range(0.5f, 1.1f); ;
+        gameObject.transform.position = new Vector2(x, y);
+        gameObject.transform.localScale *= scale;
     }
 }
