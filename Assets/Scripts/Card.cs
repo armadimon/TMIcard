@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class Card : MonoBehaviour
@@ -23,7 +24,11 @@ public class Card : MonoBehaviour
 
     public void Display()
     {
-        ActionController.instance.BezierCurve(this);
+        float endPointRandX = Random.Range(1.5f, 7.5f);
+        float endPointRandY = Random.Range(-1.0f, 4.0f);
+        Vector3 newPosition = new Vector3(endPointRandX, endPointRandY, 0);
+        ActionController controller = ActionController.Create(new Vector3(0, 7, 0), newPosition);
+        controller.BezierCurve(this);
     }
 
     public void Setting(int number)

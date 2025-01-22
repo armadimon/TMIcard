@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
     public Card thirdCard;
 
+    public Board board;
+
     public int cardCount;
     public int width;
     public float time = 0;
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
             time -= Time.deltaTime;
             UpdateTimeBar();
         }
-        else
+        if (cardCount <= 0)
         {
             GameOver(key);
         }
@@ -80,9 +82,12 @@ public class GameManager : MonoBehaviour
 
     public void MatchCard2()
     {
+
         if (firstCard.idx == secondCard.idx)
         {
             firstCard.Display();
+            board.SaveCard(firstCard);
+
             firstCard = null;
             secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
@@ -90,7 +95,7 @@ public class GameManager : MonoBehaviour
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
-            GameOver(key);
+            //GameOver(key);
         }
         else
         {
@@ -168,15 +173,29 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetFloat(key, time);
                 bestScore.text = key + " : " + time.ToString("N2");
             }
-            endPannel.SetActive(true);
-            Time.timeScale = 0;
+            board.SpreadCards();
+            Invoke("InvokeEndSettingSuccess", 2f);
         }
         if (time <= 0)
         {
-            endPannel.SetActive(true);
-            endingText.text = "FAIL...";
-            Time.timeScale = 0;
+            EndSetting("FAIL...");
         }
 
+    }
+    void InvokeEndSettingFail()
+    {
+        EndSetting("FAIL...");
+    }
+
+    void InvokeEndSettingSuccess()
+    {
+        EndSetting("SUCCESS!");
+    }
+
+    private void EndSetting(string endMsg)
+    {
+        endPannel.SetActive(true);
+        endingText.text = endMsg;
+        Time.timeScale = 0;
     }
 }

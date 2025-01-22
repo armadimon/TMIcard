@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class Board : MonoBehaviour
 {
@@ -10,17 +11,19 @@ public class Board : MonoBehaviour
 
     int width = 0;
     int level = 0;
+    float cardScale = 0;
+    float cardInterval = 0;
+    float genOffsetX = 0.0f;
+    float genOffsetY = 0.0f;
 
+    Card[] cardList = new Card[36];
     void Start()
     {
         level = GameManager.instance.level;
         width = GameManager.instance.width;
 
         int maxCard = width * width;
-        float cardScale = 0;
-        float cardInterval = 0;
-        float genOffsetX = 0.0f;
-        float genOffsetY = 0.0f;
+
 
         if (level ==1)
         {
@@ -66,6 +69,62 @@ public class Board : MonoBehaviour
         GameManager.instance.cardCount = arr.Length;
     }
 
+    public void SaveCard(Card card)
+    {
+        Debug.Log(level);
+        if (level == 1)
+        {
+            Debug.Log("check");
+            try
+            {
+                // 카드 저장 로직
+                if (cardList == null)
+                {
+                    // 초기화 로직
+                    Debug.Log("cardList is being initialized.");
+                }
+
+                // 빈 자리를 찾아서 카드 추가하는 로직
+                for (int i = 0; i < cardList.Length; i++)
+                {
+                    if (cardList[i] == null)
+                    {
+                        cardList[i] = card;
+                        return;
+                    }
+                }
+
+                Debug.LogWarning("Card list is full.");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Error in SaveCard: {e.Message}");
+            }
+        }
+        else if (level == 2)
+        {
+            for (int i = 0; i < cardList.Length; i++)
+            {
+                if (cardList[i] == null)
+                {
+                    cardList[i] = card;
+                }
+            }
+        }
+    }
+
+    public void SpreadCards()
+    {
+        for (int i = 0; i < cardList.Length; i++)
+        {
+            if (cardList[i] != null)
+            {
+                float x = (i % width) * cardInterval + 2.2f - genOffsetX;
+                float y = (i / width) * cardInterval + - genOffsetY;
+                cardList[i].transform.position = new Vector2(x, y);
+            }
+        }
+    }
     void Update()
     {
         
