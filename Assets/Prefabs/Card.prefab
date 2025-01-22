@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 3643643816200722210}
   m_Layer: 0
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idx: 0
+  right: 0
   anim: {fileID: 3643643816200722210}
   frontimage: {fileID: 22188878630032135}
 --- !u!95 &3643643816200722210
