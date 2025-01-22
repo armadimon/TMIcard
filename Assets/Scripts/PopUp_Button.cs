@@ -103,15 +103,15 @@ public class PopUp_Button : MonoBehaviour
             Name = "허유지";
             if (TargetImage.sprite.name == TMIimage1.sprite.name)
             {
-                TMI = "나는야~~";
+                TMI = "이 사진은 홍대 스튜디오에서 12만원 내고 찍은 사진이다.\r\n\r\n사장님께 바지가 멋있다고 칭찬받았으나 안타깝게도 함께 찍히지는 못했다.";
             }
             else if (TargetImage.sprite.name == TMIimage2.sprite.name)
             {
-                TMI = "퉁퉁이";
+                TMI = "침착맨 팬싸인회에 당첨된 적이 있다.\r\n\r\n침착맨 팬이 된지 벌써 14년이 흘렀다. 버킷리스트를 채울 수 있어 행복했던 순간이었다.\r\n진짜 잘생겼고 키도 큰데 카메라가 온전히 담지 못한다는게 슬펐다.";
             }
             else if (TargetImage.sprite.name == TMIimage3.sprite.name)
             {
-                TMI = "골목대장이라네";
+                TMI = "옆에 보이는 캐릭터가 본인의 최애 캐릭터.\r\n\r\n소닉 아니고 소닉 친구 섀도우다.\r\n\r\n베지터같은 성격.";
             }
         }
         else
