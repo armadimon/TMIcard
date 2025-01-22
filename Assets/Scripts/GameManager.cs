@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour
         {
             GameOver(key);
         }
+        if (time <= 0)
+        {
+            EndSetting("FAIL...");
+        }
         OnComboItem();
     }
     void UpdateTimeBar()

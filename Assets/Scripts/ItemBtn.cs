@@ -54,7 +54,6 @@ public class ItemBtn : MonoBehaviour
         GameManager.instance.itemBtn3.interactable = falseIntercatable;
         GameObject[] clones = GameObject.FindGameObjectsWithTag("Card");
         List<Card> cards = new List<Card>();
-
         int j = 0;
         for (int i = 0; i < clones.Length; i++)
         {
@@ -62,7 +61,6 @@ public class ItemBtn : MonoBehaviour
             if (tempCard.anim.GetBool("isSuccess") == false)
             {
                 cards.Add(tempCard);
-                //cards[j] = tempCard;
                 j++;
             }
         }
