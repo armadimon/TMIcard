@@ -7,27 +7,33 @@ public class ChangeImage : MonoBehaviour
     public Image Image2;
     public Image Image3;
 
+    public static int num = 2;
+
     public void RightBittonImage()
     {
- 
-        Sprite sprite1 = Resources.Load<Sprite>("Images/3");
-        Sprite sprite2 = Resources.Load<Sprite>("Images/4");
-        Sprite sprite3 = null;
+        if(num<=11)
+        {
+            num += 3;
+        }
+   
+        Image1.sprite = Resources.Load<Sprite>("Images/" + (num-2).ToString());
+        Image2.sprite = Resources.Load<Sprite>("Images/" + (num-1).ToString());
+        Image3.sprite = Resources.Load<Sprite>("Images/" + num.ToString());
 
-        if (Image1 != null && sprite1 != null) Image1.sprite = sprite1;
-        if (Image2 != null && sprite2 != null) Image2.sprite = sprite2;
-        if (Image3 != null) Image3.sprite = sprite3; 
+
     }
 
     public void LeftButtonImage()
     {
+        if(num>2)
+        {
+            num -= 3;
+        }
 
-        Sprite sprite1 = Resources.Load<Sprite>("Images/0"); 
-        Sprite sprite2 = Resources.Load<Sprite>("Images/1"); 
-        Sprite sprite3 = Resources.Load<Sprite>("Images/2"); 
+        Image1.sprite = Resources.Load<Sprite>("Images/" + (num - 2).ToString());
+        Image2.sprite = Resources.Load<Sprite>("Images/" + (num - 1).ToString());
+        Image3.sprite = Resources.Load<Sprite>("Images/" + num.ToString());
 
-        if (Image1 != null && sprite1 != null) Image1.sprite = sprite1;
-        if (Image2 != null && sprite2 != null) Image2.sprite = sprite2;
-        if (Image3 != null && sprite3 != null) Image3.sprite = sprite3; 
+
     }
 }
