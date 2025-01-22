@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
     void UpdateTimeBar()
     {
         float ratio = time / maxTime;
-        Debug.Log($"{time}, {maxTime}");
         timeBarFront.rectTransform.localScale = new Vector3(ratio, 1, 1);
     }
 
@@ -79,8 +78,9 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            firstCard.DestroyCard();
-            secondCard.DestroyCard();
+            firstCard.Display();
+            firstCard = null;
+            secondCard.DestroyCardInvoke();
             cardCount -= 2;
             GameOver(key);
         }

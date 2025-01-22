@@ -20,6 +20,11 @@ public class Card : MonoBehaviour
         
     }
 
+    public void Display()
+    {
+        ActionController.instance.BezierCurve(this);
+    }
+
     public void Setting(int number)
     {
         idx = number;
@@ -46,7 +51,7 @@ public class Card : MonoBehaviour
     }
     public void DestroyCard()
     {
-        Invoke("DestroyCardInvoke", 1.0f);
+        Invoke("DestroyCardInvoke", 3.0f);
     }
     public void DestroyCardInvoke()
     {
