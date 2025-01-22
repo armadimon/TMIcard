@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject endPannel;
+    public Button itemBtn2;
 
     public Text bestScore;
     public Text score;
@@ -19,11 +20,11 @@ public class GameManager : MonoBehaviour
 
     public int cardCount;
     public int width;
-    float time = 0;
+    public float time = 0;
+    public float maxTime = 30f;
+    public float comboTime = 0;
 
     public Image timeBarFront;
-    public float maxTime = 30f;
-
     public int level = 0;
 
     string key;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (time > 0)
         {
             time -= Time.deltaTime;
@@ -67,11 +69,12 @@ public class GameManager : MonoBehaviour
         {
             GameOver(key);
         }
+        ComboItem2();
+        Debug.Log(comboTime);
     }
     void UpdateTimeBar()
     {
         float ratio = time / maxTime;
-        Debug.Log($"{time}, {maxTime}");
         timeBarFront.rectTransform.localScale = new Vector3(ratio, 1, 1);
     }
 
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCardInvoke();
             secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
+            comboTime += 5f;
             cardCount -= 2;
             GameOver(key);
         }
@@ -89,6 +93,7 @@ public class GameManager : MonoBehaviour
         {
             firstCard.CloseCard();
             secondCard.CloseCard();
+            comboTime = 0;
         }
         firstCard = null;
         secondCard = null;
@@ -101,6 +106,7 @@ public class GameManager : MonoBehaviour
             secondCard.DestroyCardInvoke();
             thirdCard.LookCard();
             thirdCard.anim.SetBool("isSuccess",true);
+            comboTime += 5f;
             cardCount -= 3;
             GameOver(key);
         }
@@ -109,9 +115,25 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
             thirdCard.CloseCard();
+            comboTime = 0;
         }
         firstCard = null;
         secondCard = null;
+    }
+    public void ComboItem2()
+    {
+        if (comboTime > 0)
+        {
+            comboTime -= Time.deltaTime;
+        }
+        else
+        {
+            comboTime = 0;
+        }
+        if (comboTime > 10f && time < 25)
+        {
+            itemBtn2.interactable = true;
+        }
     }
     public void GameOver(string key)
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public int idx = 0;
+    public bool right = false;
 
     public Animator anim;
     public SpriteRenderer frontimage;
