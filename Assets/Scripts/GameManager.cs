@@ -148,6 +148,8 @@ public class GameManager : MonoBehaviour
     {
         if (cardCount == 0)
         {
+            PlayerPrefs.SetInt("GameCleared", 1);
+
             score.text = key + " : " + time.ToString("N2");
             if (PlayerPrefs.HasKey(key))
             {

@@ -1049,7 +1049,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1471652219}
-        m_TargetAssemblyTypeName: StratButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: GalleryButton, Assembly-CSharp
         m_MethodName: GalleryScene
         m_Mode: 1
         m_Arguments:
@@ -1107,9 +1107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471652213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c74b95589b77e439be9992e0abda7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 742d8242390562342b3234526ca1497f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  galleryButton: {fileID: 1471652216}
 --- !u!1 &1688810899
 GameObject:
   m_ObjectHideFlags: 0
