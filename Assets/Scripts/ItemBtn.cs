@@ -16,7 +16,7 @@ public class ItemBtn : MonoBehaviour
     public void Look()
     {
         GameManager.instance.comboTime = 0f;
-        GameManager.instance.itemBtn1.interactable = falseIntercatable;
+        //GameManager.instance.itemBtn1.interactable = falseIntercatable;
         animators = FindObjectsOfType<Animator>();
         foreach (Animator animator in animators)
         {

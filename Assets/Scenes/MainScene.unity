@@ -322,7 +322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPannel: {fileID: 111112196}
+  itemBtn1: {fileID: 0}
   itemBtn2: {fileID: 1053707984}
+  itemBtn3: {fileID: 0}
   bestScore: {fileID: 216745898}
   score: {fileID: 1687761693}
   endingText: {fileID: 2040760653}
@@ -336,6 +338,7 @@ MonoBehaviour:
   comboTime: 0
   timeBarFront: {fileID: 32563433}
   level: 1
+  key: 
 --- !u!1 &111112196
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +350,7 @@ GameObject:
   - component: {fileID: 111112197}
   - component: {fileID: 111112199}
   - component: {fileID: 111112198}
+  - component: {fileID: 111112200}
   m_Layer: 5
   m_Name: EndPannel
   m_TagString: Untagged
@@ -421,6 +425,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111112196}
   m_CullTransparentMesh: 1
+--- !u!114 &111112200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111112196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c887393d10d4ebcbde1b6db159d17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GallBtn: {fileID: 1140951182}
 --- !u!1 &212637576
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +491,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: isOpen
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
+  thirdCard: {fileID: 0}
 --- !u!114 &212637579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2272,6 +2292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: isOpen
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
+  thirdCard: {fileID: 0}
 --- !u!114 &1053707984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2446,7 +2469,7 @@ GameObject:
   - component: {fileID: 1140951181}
   - component: {fileID: 1140951180}
   - component: {fileID: 1140951179}
-  - component: {fileID: 1140951178}
+  - component: {fileID: 1140951182}
   m_Layer: 5
   m_Name: GalleryBtn
   m_TagString: Untagged
@@ -2474,18 +2497,6 @@ RectTransform:
   m_AnchoredPosition: {x: 448, y: -249}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1140951178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140951176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c74b95589b77e439be9992e0abda7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1140951179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,8 +2541,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1140951178}
-        m_TargetAssemblyTypeName: StratButton, Assembly-CSharp
+      - m_Target: {fileID: 1140951182}
+        m_TargetAssemblyTypeName: GalleryButton, Assembly-CSharp
         m_MethodName: GalleryScene
         m_Mode: 1
         m_Arguments:
@@ -2580,6 +2591,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140951176}
   m_CullTransparentMesh: 1
+--- !u!114 &1140951182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140951176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742d8242390562342b3234526ca1497f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1314430186
 GameObject:
   m_ObjectHideFlags: 0

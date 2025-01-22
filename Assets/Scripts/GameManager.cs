@@ -148,6 +148,11 @@ public class GameManager : MonoBehaviour
     {
         if (cardCount == 0)
         {
+            //게임 클리어가 되었는지
+            PlayerPrefs.SetInt("GameCleared", 1);
+            //게임이 종료되어도 남아있게 하는 코드 
+            //PlayerPrefs.Save();
+
             score.text = key + " : " + time.ToString("N2");
             if (PlayerPrefs.HasKey(key))
             {
