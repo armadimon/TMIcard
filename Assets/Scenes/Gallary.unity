@@ -181,8 +181,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 64b809c0ea323eb469858663538852d8, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 0310530c76ff0a44d867afe945d4f1a4, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -418,11 +418,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 64b809c0ea323eb469858663538852d8, type: 3}
+    m_Font: {fileID: 12800000, guid: 0310530c76ff0a44d867afe945d4f1a4, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -952,11 +952,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 64b809c0ea323eb469858663538852d8, type: 3}
+    m_Font: {fileID: 12800000, guid: 0310530c76ff0a44d867afe945d4f1a4, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1174,6 +1174,8 @@ MonoBehaviour:
   PopUpImage: {fileID: 199176533}
   TargetImage: {fileID: 1569627374}
   NewImage: {fileID: 963795133}
+  FirstTxt: {fileID: 1826150616}
+  SecondTxt: {fileID: 1517872210}
 --- !u!114 &963795132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,7 +1252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: da4ef8cdc7459534693d128a1e129c5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4719f2a38efa7642a578f47ffb5c208, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1471,6 +1473,8 @@ MonoBehaviour:
   PopUpImage: {fileID: 1331406848}
   TargetImage: {fileID: 0}
   NewImage: {fileID: 0}
+  FirstTxt: {fileID: 0}
+  SecondTxt: {fileID: 0}
 --- !u!114 &1206362726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,8 +1705,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 64b809c0ea323eb469858663538852d8, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 0310530c76ff0a44d867afe945d4f1a4, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -2153,8 +2157,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 64b809c0ea323eb469858663538852d8, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 0310530c76ff0a44d867afe945d4f1a4, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -2291,7 +2295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bce82967dc57593459b3fe658d00b81e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da4ef8cdc7459534693d128a1e129c5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2325,6 +2329,8 @@ MonoBehaviour:
   PopUpImage: {fileID: 731177086}
   TargetImage: {fileID: 2129595995}
   NewImage: {fileID: 1779898281}
+  FirstTxt: {fileID: 712056527}
+  SecondTxt: {fileID: 55098222}
 --- !u!1 &1826150614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,11 +2389,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 64b809c0ea323eb469858663538852d8, type: 3}
+    m_Font: {fileID: 12800000, guid: 0310530c76ff0a44d867afe945d4f1a4, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2459,6 +2465,8 @@ MonoBehaviour:
   PopUpImage: {fileID: 1331406848}
   TargetImage: {fileID: 612912848}
   NewImage: {fileID: 1851183822}
+  FirstTxt: {fileID: 213075425}
+  SecondTxt: {fileID: 1739960835}
 --- !u!114 &1851183821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2535,7 +2543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13cdc2bd02633f24b8c68b698c4d6b68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00705347ec8c7d64b8aa2830ce9b7228, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2756,6 +2764,8 @@ MonoBehaviour:
   PopUpImage: {fileID: 731177086}
   TargetImage: {fileID: 0}
   NewImage: {fileID: 0}
+  FirstTxt: {fileID: 0}
+  SecondTxt: {fileID: 0}
 --- !u!114 &1912692816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2905,6 +2915,8 @@ MonoBehaviour:
   PopUpImage: {fileID: 199176533}
   TargetImage: {fileID: 0}
   NewImage: {fileID: 0}
+  FirstTxt: {fileID: 0}
+  SecondTxt: {fileID: 0}
 --- !u!114 &1929714255
 MonoBehaviour:
   m_ObjectHideFlags: 0
