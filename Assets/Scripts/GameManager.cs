@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         }
         if (audioSource == null)
         {
-            Debug.LogError("오디오 연결안댐");
+            Debug.LogError("Error");
         }
         firstCard = null;
         secondCard = null;
@@ -175,13 +175,43 @@ public class GameManager : MonoBehaviour
         }
         if (comboTime > 10f)
         {
-            itemBtn1.interactable = true;
-            if(time < 25f)
-            { 
-                itemBtn2.interactable = true;
-            }
-            itemBtn3.interactable = true;
+
+                int random = Random.Range(0, 3);
+                if(random == 0)
+                {
+                    itemBtn1.interactable = true;
+                  
+                }
+               else if(random == 1)
+                {
+                    if (time < 25f)
+                    {
+                        itemBtn2.interactable = true; 
+                    }
+                    else
+                    {
+                        random = Random.Range(0, 2);
+                        if(random == 0)
+                        {
+                            itemBtn1.interactable = true;
+                        }
+                        else if(random == 1)
+                        {
+                        itemBtn3.interactable = true;
+                        }
+                     }
+                
+                }
+               else if (random == 2)
+                {
+                    itemBtn3.interactable = true;
+
+                }
+            comboTime = 0;
+
         }
+
+  
     }
     public void GameOver(string key)
     {
