@@ -31,6 +31,7 @@ public class Card : MonoBehaviour
         ActionController controller = ActionController.Create(target, endtarget);
         controller.BezierCurve(this);
     }
+
     public void Display()
     {
         float endPointRandX = Random.Range(1.5f, 7.5f);
