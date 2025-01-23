@@ -102,7 +102,8 @@ public class Board : MonoBehaviour
             {
                 float x = (i % width) * cardInterval + 2.2f - genOffsetX;
                 float y = (i / width) * cardInterval + - genOffsetY;
-                cardList[i].transform.position = new Vector2(x, y);
+                //cardList[i].transform.position = new Vector3(x, y, 0);
+                cardList[i].Display(new Vector3(0, 0, 0), new Vector3(x, y, 0));
             }
         }
     }

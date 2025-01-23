@@ -68,10 +68,10 @@ public class GameManager : MonoBehaviour
             time -= Time.deltaTime;
             UpdateTimeBar();
         }
-        if (cardCount <= 0)
-        {
-            GameOver(key);
-        }
+        //if (cardCount <= 0)
+        //{
+        //    GameOver(key);
+        //}
         if (time <= 0)
         {
             EndSetting("FAIL...");
@@ -98,7 +98,10 @@ public class GameManager : MonoBehaviour
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
-            //GameOver(key);
+            if (cardCount <= 0)
+            {
+                GameOver(key);
+            }
         }
         else
         {
