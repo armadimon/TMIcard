@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
                 bestScore.text = key + " : " + time.ToString("N2");
             }
             board.SpreadCards();
-            Invoke("InvokeEndSettingSuccess", 2f);
+            Invoke("InvokeEndSettingSuccess", 1f);
         }
         if (time <= 0)
         {
