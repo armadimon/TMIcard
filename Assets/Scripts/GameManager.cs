@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     public Image timeBarFront;
     public int level = 0;
 
+    AudioSource audioSource;
+    public AudioClip clip;
+
     public string key;
 
     private bool isInteractive = false;
@@ -109,6 +112,7 @@ public class GameManager : MonoBehaviour
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
+            audioSource.PlayOneShot(clip);
             //GameOver(key);
         }
         else
@@ -116,6 +120,10 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
             comboTime = 0;
+        }
+        if (audioSource == null)
+        {
+            Debug.LogError("ì˜¤ë””ì˜¤ ì—°ê²°ì•ˆëŒ");
         }
         firstCard = null;
         secondCard = null;
@@ -131,6 +139,7 @@ public class GameManager : MonoBehaviour
             thirdCard.anim.SetBool("isSuccess",true);
             comboTime += 5f;
             cardCount -= 3;
+            audioSource.PlayOneShot(clip);
             GameOver(key);
         }
         else
@@ -224,7 +233,7 @@ public class GameManager : MonoBehaviour
             countdown--;
         }
         countdownText.text = "GO!";
-        yield return new WaitForSeconds(0.5f); // 1ÃÊ°£ "GO!" À¯Áö
+        yield return new WaitForSeconds(0.5f); // 1ï¿½Ê°ï¿½ "GO!" ï¿½ï¿½ï¿½ï¿½
         countdownText.gameObject.SetActive(false);
         itemBtn1.onClick.Invoke();
         eventSystem.enabled = true;

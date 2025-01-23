@@ -10,10 +10,14 @@ public class Card : MonoBehaviour
 
     public Animator anim;
     public SpriteRenderer frontimage;
+
+    AudioSource audioSource;
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,6 +60,8 @@ public class Card : MonoBehaviour
             GameManager.instance.thirdCard = this;
             GameManager.instance.MatchCard3();
         }
+        if (GameManager.instance.secondCard != null) return;
+        audioSource.PlayOneShot(clip);
     }
     public void DestroyCard()
     {
