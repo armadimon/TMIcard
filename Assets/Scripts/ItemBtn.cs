@@ -28,7 +28,7 @@ public class ItemBtn : MonoBehaviour
                 animator.SetBool("isOpen", true);
             }
         }
-        Invoke("Close", 0.5f);
+        Invoke("Close", 2.0f);
     }
     private void Close()
     {
