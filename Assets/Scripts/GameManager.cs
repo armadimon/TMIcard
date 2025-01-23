@@ -130,11 +130,15 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCardInvoke();
             secondCard.DestroyCardInvoke();
             thirdCard.LookCard();
+            board.SaveCard(thirdCard);
             thirdCard.right = true;
             thirdCard.anim.SetBool("isSuccess",true);
             comboTime += 5f;
             cardCount -= 3;
-            GameOver(key);
+            if (cardCount <= 0)
+            {
+                GameOver(key);
+            }
         }
         else
         {
@@ -145,6 +149,7 @@ public class GameManager : MonoBehaviour
         }
         firstCard = null;
         secondCard = null;
+        thirdCard = null;
     }
     public void OnComboItem()
     {
