@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         }
         if (time <= 0)
         {
-            EndSetting("FAIL...");
+            GameOver(key);
         }
         OnComboItem();
     }
@@ -237,12 +237,17 @@ public class GameManager : MonoBehaviour
             board.SpreadCards();
             Invoke("InvokeEndSettingSuccess", 1f);
         }
-        if (time <= 0)
+        else if (time <= 0)
         {
-            GameOver("FAIL...");
+            if (PlayerPrefs.HasKey(key))
+            {
+                score.text = "FAIL...";
+                float best = PlayerPrefs.GetFloat(key);
+                bestScore.text = key + " : " + best.ToString("N2") + " ÃÊ";
+            }
+            EndSetting("FAIL...");
         }
     }
-
     void InvokeEndSettingSuccess()
     {
         PlayerPrefs.SetInt("GameCleared", 1);
