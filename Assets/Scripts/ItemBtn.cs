@@ -69,7 +69,6 @@ public class ItemBtn : MonoBehaviour
             while (GameManager.instance.cardCount != 0)
             {
                 int ranNum = Random.Range(0, cards.Count);
-                Debug.Log(cards.Count);
                 firstCard = cards[ranNum];
                 for (int i = 0; i < cards.Count - 1; i++)
                 {

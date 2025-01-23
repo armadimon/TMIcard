@@ -239,13 +239,8 @@ public class GameManager : MonoBehaviour
         }
         if (time <= 0)
         {
-            EndSetting("FAIL...");
+            GameOver("FAIL...");
         }
-
-    }
-    void InvokeEndSettingFail()
-    {
-        EndSetting("FAIL...");
     }
 
     void InvokeEndSettingSuccess()
