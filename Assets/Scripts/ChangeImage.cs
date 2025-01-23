@@ -19,6 +19,10 @@ public class ChangeImage : MonoBehaviour
         {
             num += 3;
         }
+        else
+        {
+            num = 2;
+        }
 
         Image1.sprite = Resources.Load<Sprite>("Images/" + (num - 2).ToString());
         Image2.sprite = Resources.Load<Sprite>("Images/" + (num - 1).ToString());
@@ -32,6 +36,10 @@ public class ChangeImage : MonoBehaviour
         if (num > 2)
         {
             num -= 3;
+        }
+        else
+        {
+            num = 14;
         }
 
         Image1.sprite = Resources.Load<Sprite>("Images/" + (num - 2).ToString());
