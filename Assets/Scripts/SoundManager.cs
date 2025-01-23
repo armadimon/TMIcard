@@ -10,8 +10,6 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     AudioSource audioSource;
-    SoundManager soundManager;
-
     public AudioClip clip;
 
 
@@ -29,13 +27,25 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void GallerySeceneMusicPlay()
+    {
+        audioSource.clip = Resources.Load<AudioClip>($"Sound/Ukulele Beach - Doug Maxwell");
+        audioSource.Play();
+    }
+
+    public void StartSeceneMusicPlay()
+    {
+        audioSource.clip = Resources.Load<AudioClip>($"Sound/Goat - Wayne Jones");
+        audioSource.Play();
+    }
+
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 }
