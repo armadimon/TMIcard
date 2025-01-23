@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public Image timeBarFront;
     public int level = 0;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip clip;
 
     public string key;
@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
 
         if (firstCard.idx == secondCard.idx)
         {
+            audioSource.PlayOneShot(clip);
             firstCard.Display();
             board.SaveCard(firstCard);
             firstCard.anim.SetBool("isSuccess", true);
@@ -112,7 +113,6 @@ public class GameManager : MonoBehaviour
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
-            audioSource.PlayOneShot(clip);
             //GameOver(key);
         }
         else
@@ -120,10 +120,6 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
             comboTime = 0;
-        }
-        if (audioSource == null)
-        {
-            Debug.LogError("오디오 연결안댐");
         }
         firstCard = null;
         secondCard = null;
