@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     public string key;
 
     private bool isInteractive = false;
-    private int useItem = 1;
 
     private void Awake()
     {
