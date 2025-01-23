@@ -256,24 +256,24 @@ public class GameManager : MonoBehaviour
         {
             isInteractive = false;
             float convertTime = 30 - time;
-            score.text = key + " : " + convertTime.ToString("N2") + " ��";
+            score.text = key + " : " + convertTime.ToString("N2") + " 초";
             if (PlayerPrefs.HasKey(key))
             {
                 float best = PlayerPrefs.GetFloat(key);
                 if (convertTime < best)
                 {
                     PlayerPrefs.SetFloat(key, convertTime);
-                    bestScore.text = key + " : " + convertTime.ToString("N2") + " ��";
+                    bestScore.text = key + " : " + convertTime.ToString("N2") + " 초";
                 }
                 else
                 {
-                    bestScore.text = key + " : " + best.ToString("N2") + " ��";
+                    bestScore.text = key + " : " + best.ToString("N2") + " 초";
                 }
             }
             else
             {
                 PlayerPrefs.SetFloat(key, convertTime);
-                bestScore.text = key + " : " + convertTime.ToString("N2") + " ��";
+                bestScore.text = key + " : " + convertTime.ToString("N2") + " 초";
             }
             board.SpreadCards();
             Invoke("InvokeEndSettingSuccess", 1f);
@@ -284,7 +284,7 @@ public class GameManager : MonoBehaviour
             {
                 score.text = "FAIL...";
                 float best = PlayerPrefs.GetFloat(key);
-                bestScore.text = key + " : " + best.ToString("N2") + " ��";
+                bestScore.text = key + " : " + best.ToString("N2") + " 초";
             }
             EndSetting("FAIL...");
         }
