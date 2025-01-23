@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
     public Card thirdCard;
     public Board board;
+
+    public Animator mouseEffect01;
+    public Animator mouseEffect02;
+    public Animator mouseEffect03;
 
     public int cardCount;
     public int width;
@@ -54,7 +59,6 @@ public class GameManager : MonoBehaviour
         {
             level = PlayerPrefs.GetInt("Level");
         }
-    }
 
 
     void Start()
@@ -63,6 +67,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartCountdown());
 
         time = maxTime;
+
+
+
         if (level == 1)
         {
             width = 4;
@@ -76,7 +83,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (time > 0 && isInteractive)
@@ -101,12 +107,17 @@ public class GameManager : MonoBehaviour
 
         if (firstCard.idx == secondCard.idx)
         {
+            twoCardPlayMouseEffect(firstCard.transform.position, secondCard.transform.position);
             audioSource.PlayOneShot(clip);
             firstCard.Display();
             board.SaveCard(firstCard);
+
             firstCard.anim.SetBool("isSuccess", true);
             firstCard = null;
+
+            secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
+
             secondCard.right = true;
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
@@ -133,6 +144,8 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx && secondCard.idx == thirdCard.idx)
         {
+            threeCardPlayMouseEffect02(firstCard.transform.position, secondCard.transform.position, thirdCard.transform.position);
+
             firstCard.DestroyCardInvoke();
             secondCard.DestroyCardInvoke();
             thirdCard.LookCard();
@@ -157,6 +170,13 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
         thirdCard = null;
+    }
+
+    public void GetTotalScore()
+    {
+        TotalScore ++;
+
+        TotalScoreText.text = TotalScore.ToString();
     }
     public void OnComboItem()
     {
@@ -209,30 +229,59 @@ public class GameManager : MonoBehaviour
 
   
     }
+
+    private void twoCardPlayMouseEffect(Vector2 position1, Vector2 position2)
+    {
+        if (mouseEffect01 !=null && mouseEffect02 !=null)
+        {
+            mouseEffect01.transform.position = position1;
+            mouseEffect01.SetTrigger("Active");
+
+            mouseEffect02.transform.position = position2;
+            mouseEffect02.SetTrigger("Active");
+        }
+    }
+
+    private void threeCardPlayMouseEffect02(Vector2 position1, Vector2 position2, Vector2 position3)
+    {
+        if (mouseEffect01 !=null && mouseEffect02 !=null && mouseEffect03 != null)
+        {
+            mouseEffect01.transform.position = position1;
+            mouseEffect01.SetTrigger("Active");
+
+            mouseEffect02.transform.position = position2;
+            mouseEffect02.SetTrigger("Active");
+
+            mouseEffect03.transform.position = position3;
+            mouseEffect03.SetTrigger("Active");
+        }
+    }
+
     public void GameOver(string key)
     {
+        Debug.Log(cardCount);
         if (cardCount == 0)
         {
             isInteractive = false;
             float convertTime = 30 - time;
-            score.text = key + " : " + convertTime.ToString("N2") + " ÃÊ";
+            score.text = key + " : " + convertTime.ToString("N2") + " ï¿½ï¿½";
             if (PlayerPrefs.HasKey(key))
             {
                 float best = PlayerPrefs.GetFloat(key);
                 if (convertTime < best)
                 {
                     PlayerPrefs.SetFloat(key, convertTime);
-                    bestScore.text = key + " : " + convertTime.ToString("N2") + " ÃÊ";
+                    bestScore.text = key + " : " + convertTime.ToString("N2") + " ï¿½ï¿½";
                 }
                 else
                 {
-                    bestScore.text = key + " : " + best.ToString("N2") + " ÃÊ";
+                    bestScore.text = key + " : " + best.ToString("N2") + " ï¿½ï¿½";
                 }
             }
             else
             {
                 PlayerPrefs.SetFloat(key, convertTime);
-                bestScore.text = key + " : " + convertTime.ToString("N2") + " ÃÊ";
+                bestScore.text = key + " : " + convertTime.ToString("N2") + " ï¿½ï¿½";
             }
             board.SpreadCards();
             Invoke("InvokeEndSettingSuccess", 1f);
@@ -243,7 +292,7 @@ public class GameManager : MonoBehaviour
             {
                 score.text = "FAIL...";
                 float best = PlayerPrefs.GetFloat(key);
-                bestScore.text = key + " : " + best.ToString("N2") + " ÃÊ";
+                bestScore.text = key + " : " + best.ToString("N2") + " ï¿½ï¿½";
             }
             EndSetting("FAIL...");
         }
