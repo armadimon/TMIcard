@@ -38,7 +38,7 @@ public class ActionController : MonoBehaviour
             Vector3 p5 = Vector3.Lerp(controlPoint.position, endPoint.position, t);
             target.transform.position = Vector3.Lerp(p4, p5, t);
 
-            Debug.Log(target.transform.position);
+            //Debug.Log(target.transform.position);
             yield return null;
         }
 

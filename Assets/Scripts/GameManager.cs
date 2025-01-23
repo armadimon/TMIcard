@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,13 +16,19 @@ public class GameManager : MonoBehaviour
     public Text bestScore;
     public Text score;
     public Text endingText;
+    public Text TotalScoreText;
 
     public Card firstCard;
     public Card secondCard;
     public Card thirdCard;
 
+    public Animator mouseEffect01;
+    public Animator mouseEffect02;
+    public Animator mouseEffect03;
+
     public int cardCount;
     public int width;
+    public int TotalScore; //카드 한 쌍 뒤집었을 시 상승하는 점수
     public float time = 0;
     public float maxTime = 30f;
     public float comboTime = 0;
@@ -41,10 +48,16 @@ public class GameManager : MonoBehaviour
         {
             level = PlayerPrefs.GetInt("Level");
         }
+
+        TotalScore = PlayerPrefs.GetInt("TotalScore"); //int 붙이면 안돼!!
+        TotalScoreText.text = TotalScore.ToString(); // 문자열로써 화면에 나올 수 있도록 text, string 잊지말기
     }
     void Start()
     {
         time = maxTime;
+
+
+
         if (level == 1)
         {
             width = 4;
@@ -82,14 +95,23 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
+            //firstCard.effectAnim.SetTrigger("Active");
+            //secondCard.effectAnim.SetTrigger("Active"); //Coroutine으로 지연
+
+            twoCardPlayMouseEffect(firstCard.transform.position, secondCard.transform.position);
+
             firstCard.Display();
-            firstCard = null;
+            //firstCard = null;
             secondCard.LookCard();
             secondCard.anim.SetBool("isSuccess", true);
+
+            Debug.Log(firstCard.gameObject.transform.position);
             secondCard.right = true;
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
+            GameManager.instance.GetTotalScore();
+
             GameOver(key);
         }
         else
@@ -105,6 +127,8 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx && secondCard.idx == thirdCard.idx)
         {
+            threeCardPlayMouseEffect02(firstCard.transform.position, secondCard.transform.position, thirdCard.transform.position);
+
             firstCard.DestroyCardInvoke();
             secondCard.DestroyCardInvoke();
             thirdCard.LookCard();
@@ -112,6 +136,8 @@ public class GameManager : MonoBehaviour
             thirdCard.anim.SetBool("isSuccess",true);
             comboTime += 5f;
             cardCount -= 3;
+            GameManager.instance.GetTotalScore();
+
             GameOver(key);
         }
         else
@@ -123,6 +149,13 @@ public class GameManager : MonoBehaviour
         }
         firstCard = null;
         secondCard = null;
+    }
+
+    public void GetTotalScore()
+    {
+        TotalScore ++;
+
+        TotalScoreText.text = TotalScore.ToString();
     }
     public void OnComboItem()
     {
@@ -145,11 +178,43 @@ public class GameManager : MonoBehaviour
             itemBtn3.interactable = true;
         }
     }
+
+    private void twoCardPlayMouseEffect(Vector2 position1, Vector2 position2)
+    {
+        if (mouseEffect01 !=null && mouseEffect02 !=null)
+        {
+            mouseEffect01.transform.position = position1;
+            mouseEffect01.SetTrigger("Active");
+
+            mouseEffect02.transform.position = position2;
+            mouseEffect02.SetTrigger("Active");
+        }
+    }
+
+    private void threeCardPlayMouseEffect02(Vector2 position1, Vector2 position2, Vector2 position3)
+    {
+        if (mouseEffect01 !=null && mouseEffect02 !=null && mouseEffect03 != null)
+        {
+            mouseEffect01.transform.position = position1;
+            mouseEffect01.SetTrigger("Active");
+
+            mouseEffect02.transform.position = position2;
+            mouseEffect02.SetTrigger("Active");
+
+            mouseEffect03.transform.position = position3;
+            mouseEffect03.SetTrigger("Active");
+        }
+    }
+
     public void GameOver(string key)
     {
+        Debug.Log(cardCount);
         if (cardCount == 0)
         {
             score.text = key + " : " + time.ToString("N2");
+            PlayerPrefs.SetInt("TotalScore", TotalScore);
+            PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetInt("TotalScore"));
             if (PlayerPrefs.HasKey(key))
             {
                 float best = PlayerPrefs.GetFloat(key);
@@ -173,6 +238,9 @@ public class GameManager : MonoBehaviour
         }
         if (time <= 0)
         {
+            PlayerPrefs.SetInt("TotalScore", TotalScore);
+            PlayerPrefs.Save();
+
             endPannel.SetActive(true);
             endingText.text = "FAIL...";
             Time.timeScale = 0;
