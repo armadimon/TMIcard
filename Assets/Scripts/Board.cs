@@ -71,25 +71,12 @@ public class Board : MonoBehaviour
 
     public void SaveCard(Card card)
     {
-        if (level == 1)
+        for (int i = 0; i < cardList.Length; i++)
         {
-            for (int i = 0; i < cardList.Length; i++)
+            if (cardList[i] == null)
             {
-                if (cardList[i] == null)
-                {
-                    cardList[i] = card;
-                    return;
-                }
-            }
-        }
-        else if (level == 2)
-        {
-            for (int i = 0; i < cardList.Length; i++)
-            {
-                if (cardList[i] == null)
-                {
-                    cardList[i] = card;
-                }
+                cardList[i] = card;
+                return;
             }
         }
     }
@@ -102,7 +89,23 @@ public class Board : MonoBehaviour
             {
                 float x = (i % width) * cardInterval + 2.2f - genOffsetX;
                 float y = (i / width) * cardInterval + - genOffsetY;
-                cardList[i].transform.position = new Vector2(x, y);
+                //cardList[i].transform.position = new Vector3(x, y, 0);
+                cardList[i].Display(new Vector3(0, 0, 0), new Vector3(x, y, 0));
+                Debug.Log("aa");
+            }
+        }
+    }
+    public void SpreadCards2()
+    {
+        for (int i = 0; i < cardList.Length; i++)
+        {
+            if (cardList[i] != null)
+            {
+                float x = (i % width) * cardInterval + 2.2f - genOffsetX;
+                float y = (i / width) * cardInterval + -genOffsetY;
+                //cardList[i].transform.position = new Vector3(x, y, 0);
+                cardList[i].Display(new Vector3(0, 0, 0), new Vector3(x, y, 0));
+                Debug.Log("aa");
             }
         }
     }

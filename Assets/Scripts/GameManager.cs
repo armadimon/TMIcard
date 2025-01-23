@@ -84,10 +84,10 @@ public class GameManager : MonoBehaviour
             time -= Time.deltaTime;
             UpdateTimeBar();
         }
-        if (cardCount <= 0)
-        {
-            GameOver(key);
-        }
+        //if (cardCount <= 0)
+        //{
+        //    GameOver(key);
+        //}
         if (time <= 0)
         {
             EndSetting("FAIL...");
@@ -115,7 +115,10 @@ public class GameManager : MonoBehaviour
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
             audioSource.PlayOneShot(clip);
-            //GameOver(key);
+            if (cardCount <= 0)
+            {
+                GameOver(key);
+            }
         }
         else
         {
@@ -137,12 +140,16 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCardInvoke();
             secondCard.DestroyCardInvoke();
             thirdCard.LookCard();
+            board.SaveCard(thirdCard);
             thirdCard.right = true;
             thirdCard.anim.SetBool("isSuccess",true);
             comboTime += 5f;
             cardCount -= 3;
             audioSource.PlayOneShot(clip);
-            GameOver(key);
+            if (cardCount <= 0)
+            {
+                GameOver(key);
+            }
         }
         else
         {
@@ -153,6 +160,7 @@ public class GameManager : MonoBehaviour
         }
         firstCard = null;
         secondCard = null;
+        thirdCard = null;
     }
     public void OnComboItem()
     {
@@ -199,7 +207,7 @@ public class GameManager : MonoBehaviour
                 bestScore.text = key + " : " + time.ToString("N2");
             }
             board.SpreadCards();
-            Invoke("InvokeEndSettingSuccess", 2f);
+            Invoke("InvokeEndSettingSuccess", 1f);
         }
         if (time <= 0)
         {

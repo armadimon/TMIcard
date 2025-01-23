@@ -26,6 +26,11 @@ public class Card : MonoBehaviour
         
     }
 
+    public void Display(Vector3 target, Vector3 endtarget)
+    {
+        ActionController controller = ActionController.Create(target, endtarget);
+        controller.BezierCurve(this);
+    }
     public void Display()
     {
         float endPointRandX = Random.Range(1.5f, 7.5f);
@@ -82,8 +87,8 @@ public class Card : MonoBehaviour
 
     public void LookCard()
     {
-        float x = Random.Range(1.2f, 8.0f);
-        float y = Random.Range(-0.8f, -2.7f);
+        float x = Random.Range(1.5f, 7.5f);
+        float y = Random.Range(-1.0f, 4.0f);
         float scale = Random.Range(0.5f, 1.1f); ;
         gameObject.transform.position = new Vector2(x, y);
         gameObject.transform.localScale *= scale;
