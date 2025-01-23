@@ -90,6 +90,7 @@ public class ItemBtn : MonoBehaviour
                     {
                         GameManager.instance.GameOver(GameManager.instance.key);
                     }
+                    GameManager.instance.audioSource.PlayOneShot(GameManager.instance.clip);
                     break;
                 }
             }
@@ -128,6 +129,7 @@ public class ItemBtn : MonoBehaviour
                     {
                         GameManager.instance.GameOver(GameManager.instance.key);
                     }
+                    GameManager.instance.audioSource.PlayOneShot(GameManager.instance.clip);
                     break;
                 }
             }
