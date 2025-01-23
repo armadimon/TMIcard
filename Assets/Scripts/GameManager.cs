@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public Image timeBarFront;
     public int level = 0;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip clip;
 
     public string key;

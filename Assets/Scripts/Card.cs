@@ -42,6 +42,7 @@ public class Card : MonoBehaviour
     }
     public void OpenCard()
     {
+        audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
         if (GameManager.instance.firstCard == null)
         {
@@ -61,7 +62,6 @@ public class Card : MonoBehaviour
             GameManager.instance.MatchCard3();
         }
         if (GameManager.instance.secondCard != null) return;
-        audioSource.PlayOneShot(clip);
     }
     public void DestroyCard()
     {
