@@ -30,12 +30,14 @@ public class SoundManager : MonoBehaviour
     public void GallerySeceneMusicPlay()
     {
         audioSource.clip = Resources.Load<AudioClip>($"Sound/Ukulele Beach - Doug Maxwell");
+        clip = audioSource.clip;
         audioSource.Play();
     }
 
     public void StartSeceneMusicPlay()
     {
         audioSource.clip = Resources.Load<AudioClip>($"Sound/Goat - Wayne Jones");
+        clip = audioSource.clip;
         audioSource.Play();
     }
 

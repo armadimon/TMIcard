@@ -14,7 +14,10 @@ public class SoundManager2 : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "StartScene")
         {
-            SoundManager.instance.StartSeceneMusicPlay();
+            if (SoundManager.instance.clip.name != "Goat - Wayne Jones")
+            {
+                SoundManager.instance.StartSeceneMusicPlay();
+            }
         }
         else if (SceneManager.GetActiveScene().name == "MainScene")
         {
