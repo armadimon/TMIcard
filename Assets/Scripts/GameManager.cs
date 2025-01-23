@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 
         if (firstCard.idx == secondCard.idx)
         {
+            audioSource.PlayOneShot(clip);
             firstCard.Display();
             board.SaveCard(firstCard);
             firstCard.anim.SetBool("isSuccess", true);
@@ -114,7 +115,6 @@ public class GameManager : MonoBehaviour
             comboTime += 5f;
             secondCard.DestroyCardInvoke();
             cardCount -= 2;
-            audioSource.PlayOneShot(clip);
             if (cardCount <= 0)
             {
                 GameOver(key);

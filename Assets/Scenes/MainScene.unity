@@ -577,6 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: isOpen
+  falseIntercatable: 0
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   thirdCard: {fileID: 0}
@@ -2296,6 +2297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: isOpen
+  falseIntercatable: 0
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   thirdCard: {fileID: 0}
@@ -2447,6 +2449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: isOpen
+  falseIntercatable: 0
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   thirdCard: {fileID: 0}
@@ -3146,7 +3149,7 @@ GameObject:
   - component: {fileID: 1805884163}
   - component: {fileID: 1805884162}
   m_Layer: 0
-  m_Name: match
+  m_Name: MatchSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
