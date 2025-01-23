@@ -85,10 +85,6 @@ public class GameManager : MonoBehaviour
             time -= Time.deltaTime;
             UpdateTimeBar();
         }
-        //if (cardCount <= 0)
-        //{
-        //    GameOver(key);
-        //}
         if (time <= 0)
         {
             EndSetting("FAIL...");
@@ -218,24 +214,26 @@ public class GameManager : MonoBehaviour
     {
         if (cardCount == 0)
         {
-            score.text = key + " : " + time.ToString("N2");
+            isInteractive = false;
+            float convertTime = 30 - time;
+            score.text = key + " : " + convertTime.ToString("N2") + " 段";
             if (PlayerPrefs.HasKey(key))
             {
                 float best = PlayerPrefs.GetFloat(key);
-                if (time > best)
+                if (convertTime < best)
                 {
-                    PlayerPrefs.SetFloat(key, time);
-                    bestScore.text = key + " : " + time.ToString("N2");
+                    PlayerPrefs.SetFloat(key, convertTime);
+                    bestScore.text = key + " : " + convertTime.ToString("N2") + " 段";
                 }
                 else
                 {
-                    bestScore.text = key + " : " + best.ToString("N2");
+                    bestScore.text = key + " : " + best.ToString("N2") + " 段";
                 }
             }
             else
             {
-                PlayerPrefs.SetFloat(key, time);
-                bestScore.text = key + " : " + time.ToString("N2");
+                PlayerPrefs.SetFloat(key, convertTime);
+                bestScore.text = key + " : " + convertTime.ToString("N2") + " 段";
             }
             board.SpreadCards();
             Invoke("InvokeEndSettingSuccess", 1f);
@@ -259,6 +257,12 @@ public class GameManager : MonoBehaviour
 
     private void EndSetting(string endMsg)
     {
+        Transform xbtn = endPannel.transform.Find("XBtn");
+
+        if (xbtn != null)
+        {
+            xbtn.gameObject.SetActive(false);
+        }
         endPannel.SetActive(true);
         endingText.text = endMsg;
         Time.timeScale = 0;
@@ -270,7 +274,7 @@ public class GameManager : MonoBehaviour
         while (countdown > 0)
         {
             countdownText.text = countdown.ToString();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f); 
             countdown--;
         }
         countdownText.text = "Start!";
