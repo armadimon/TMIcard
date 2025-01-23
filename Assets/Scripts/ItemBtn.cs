@@ -23,7 +23,7 @@ public class ItemBtn : MonoBehaviour
         animators = FindObjectsOfType<Animator>();
         foreach (Animator animator in animators)
         {
-            if (animator!=null && animator.name != "FadeoutPanel")
+            if (animator!=null && animator.name == "Card(Clone)" )
             {
                 animator.SetBool("isOpen", true);
             }
@@ -34,7 +34,7 @@ public class ItemBtn : MonoBehaviour
     {
         foreach (Animator animator in animators)
         {
-            if (animator != null)
+            if (animator != null && animator.name == "Card(Clone)")
             {
                 animator.SetBool("isOpen", false);
             }

@@ -59,43 +59,40 @@ public class GameManager : MonoBehaviour
         {
             level = PlayerPrefs.GetInt("Level");
         }
-
-
-    void Start()
-    {
-        eventSystem.enabled = false;
-        StartCoroutine(StartCountdown());
-
-        time = maxTime;
-
-
-
-        if (level == 1)
-        {
-            width = 4;
-            key = "Level1";
-        }
-        if (level == 2)
-        {
-            width = 6;
-            key = "Level2";
-        }
-        Time.timeScale = 1.0f;
     }
 
-    void Update()
-    {
-        if (time > 0 && isInteractive)
+        void Start()
         {
-            time -= Time.deltaTime;
-            UpdateTimeBar();
+            eventSystem.enabled = false;
+            StartCoroutine(StartCountdown());
+            time = maxTime;
+
+            if (level == 1)
+            {
+                width = 4;
+                key = "Level1";
+            }
+            if (level == 2)
+            {
+                width = 6;
+                key = "Level2";
+            }
+            Time.timeScale = 1.0f;
         }
-        if (time <= 0)
+
+        void Update()
         {
-            GameOver(key);
+            if (time > 0 && isInteractive)
+            {
+                time -= Time.deltaTime;
+                UpdateTimeBar();
+            }
+            if (time <= 0)
+            {
+                GameOver(key);
+            }
+            OnComboItem();
         }
-        OnComboItem();
-    }
     void UpdateTimeBar()
     {
         float ratio = time / maxTime;
@@ -172,12 +169,7 @@ public class GameManager : MonoBehaviour
         thirdCard = null;
     }
 
-    public void GetTotalScore()
-    {
-        TotalScore ++;
 
-        TotalScoreText.text = TotalScore.ToString();
-    }
     public void OnComboItem()
     {
         
