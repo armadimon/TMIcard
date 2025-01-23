@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public EventSystem eventSystem;
 
     public GameObject endPannel;
     public Button itemBtn1;
@@ -15,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Text bestScore;
     public Text score;
     public Text endingText;
+    public Text countdownText;
 
     public Card firstCard;
     public Card secondCard;
@@ -33,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public string key;
 
+    private bool isInteractive = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,8 +50,13 @@ public class GameManager : MonoBehaviour
             level = PlayerPrefs.GetInt("Level");
         }
     }
+
+
     void Start()
     {
+        eventSystem.enabled = false;
+        StartCoroutine(StartCountdown());
+
         time = maxTime;
         if (level == 1)
         {
@@ -63,7 +74,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time > 0)
+        if (time > 0 && isInteractive)
         {
             time -= Time.deltaTime;
             UpdateTimeBar();
@@ -201,5 +212,22 @@ public class GameManager : MonoBehaviour
         endPannel.SetActive(true);
         endingText.text = endMsg;
         Time.timeScale = 0;
+    }
+    private IEnumerator StartCountdown()
+    {
+        int countdown = 3;
+
+        while (countdown > 0)
+        {
+            countdownText.text = countdown.ToString();
+            yield return new WaitForSeconds(1f);
+            countdown--;
+        }
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(0.5f); // 1초간 "GO!" 유지
+        countdownText.gameObject.SetActive(false);
+        itemBtn1.onClick.Invoke();
+        eventSystem.enabled = true;
+        isInteractive = true;
     }
 }
