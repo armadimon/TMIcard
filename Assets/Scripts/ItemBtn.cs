@@ -23,7 +23,7 @@ public class ItemBtn : MonoBehaviour
         animators = FindObjectsOfType<Animator>();
         foreach (Animator animator in animators)
         {
-            if(animator!=null)
+            if (animator!=null && animator.name != "FadeoutPanel")
             {
                 animator.SetBool("isOpen", true);
             }

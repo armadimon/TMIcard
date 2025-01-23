@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public EventSystem eventSystem;
 
     public GameObject endPannel;
+    public GameObject fadeoutPanel;
+    public Animator anim;
+
     public Button itemBtn1;
     public Button itemBtn2;
     public Button itemBtn3;
@@ -23,7 +26,6 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
     public Card thirdCard;
-
     public Board board;
 
     public int cardCount;
@@ -231,11 +233,13 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             countdown--;
         }
-        countdownText.text = "GO!";
-        yield return new WaitForSeconds(0.5f); // 1초간 "GO!" 유지
+        countdownText.text = "Start!";
+        anim.SetBool("isCounting", false);
+        yield return new WaitForSeconds(1.0f);
         countdownText.gameObject.SetActive(false);
         itemBtn1.onClick.Invoke();
         eventSystem.enabled = true;
         isInteractive = true;
+        fadeoutPanel.SetActive(false);
     }
 }
